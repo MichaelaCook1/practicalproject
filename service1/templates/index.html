@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<center><h1 style="font-family:verdana;"> D&D Dice Roller </h1></center> 
+		<br>
+		<center><p style="font-family:geneva;font-size: xx-large;font-weight: bold;"> Click roll to roll a d20 for initiative and a d12 for damage</p></center>
+		<br>
+		<div>
+			<h2> D20 result: <h3> {{ d20 }} </h2>
+			<h2> D12 result: <h3> {{ d12 }} </h2>
+			<h2> final result: <h3> {{ total }} </h2>
+		</div>
+		<br>
+		<center><div><a href="{{ url_for('index') }}"><button style="font-family:verdana;font-size: x-large;">Roll!</button></div></center>
+		<br>
+	</body>
+</html>
