@@ -10,7 +10,7 @@ class TestBase(TestCase):
 
 class Testd12(TestBase):
     def test_d12(self):
-        12integers = [b"1",b"2",b"3",b"4",b"5",b"6",b"7",b"8",b"9",b"10",b"11",b"12"]
-        response = self.client.get(url_for('d12'))
-        self.assertIn(response.data, 12integers)
+        for i in range (1,12):
+            response = self.client.get(url_for('/d12'))
+            self.assertIs(type(response.data.decode('utf-8')),int )
 ~                                                          

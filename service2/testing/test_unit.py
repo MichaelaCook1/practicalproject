@@ -10,7 +10,6 @@ class TestBase(TestCase):
 
 class Testd20(TestBase):
     def test_d20(self):
-        for i in range (1,20):
-            self.assertIs(self.number,int)
-        response = self.client.get(url_for('d20'))
-        self.assertIn(response.data, 20integers)
+            response = self.client.get('/d20')
+            self.assertIs(type(response.data.decode('utf-8')),int)
+        

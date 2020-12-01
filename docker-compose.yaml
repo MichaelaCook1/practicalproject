@@ -1,0 +1,52 @@
+version: '3.7'
+services:
+  service1:
+    image: michaela6543/practicalproject_service1
+    build: ./service1
+    ports:
+    - 5000:5000
+    environment:
+      DATABASE_URI: $DATABASE_URI
+      SECRET_KEY: $SECRET_KEY
+    depends_on: 
+    - service2
+    - service3
+    - service4
+    - mysql
+    deploy:
+      replicas: 3
+  service2:
+    image: michaela6543/practicalproject_service2
+    build: ./service2
+    ports:
+    - 5001:5001
+    deploy:
+      replicas: 3
+  service3:
+    image: michaela6543/practicalproject_service3
+    build: ./service3
+    ports:
+    - 5002:5002
+    deploy:
+      replicas: 3
+  service4:
+    image: michaela6543/practicalproject_service4
+    build: ./service4
+    ports:
+    - 5003:5003
+    deploy:
+      replicas: 3
+  mysql:
+    image: michaela6543/practicalproject_mysql
+    build: ./db
+    ports:
+    - 3306:3306
+    environment: 
+      MYSQL_ROOT_PASSWORD: ${DB_PASS}
+      MYSQL_DATABASE: "attempts_db"
+    volumes:
+    - type: volume
+      source: attempts
+      target: /var/lib/mysql
+volumes:
+  attempts: 

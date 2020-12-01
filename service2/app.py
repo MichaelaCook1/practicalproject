@@ -5,9 +5,7 @@ app = Flask(__name__)
 
 @app.route('/d20', methods=['GET'])
 def d20():
-    d20 = []
-    d20 = random.randint(1, 20)
-    d20.append(d20)
+    d20 = int(random.randint(1, 20))
     return response(d20, mimetype="text/plain")
 
 if __name__ =="__main__":

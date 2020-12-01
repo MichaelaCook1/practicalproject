@@ -29,8 +29,8 @@ def index_roll():
     #gets D12 result
     d12 = requests.get("http://service3:5002/d12")
     #total
-    value = requests.post("http://service4:5003/total",data=value.text)
-    resultcheck = requests.post("http://service4:5003/resultcheck", data=total.text)    
+    value = requests.post("http://service4:5003/value",data=value.text)
+    resultcheck = requests.post("http://service4:5003/resultcheck", data=result.text)    
     if resultcheck == 'True':
         result = True
         attempt = attempts(
