@@ -21,6 +21,6 @@ class TestResponse(TestBase):
             with patch("requests.get") as p:
                 p.return_value = "4"
                 with patch ("requests.post") as gp:
-                    gp.return_value = "True"
-                response = self.client.get(url_for("index_roll"))
-                self.assertEqual(response.result, True)
+                    gp.return_value.text = "Win"
+                    response = ((self.client.get(url_for("index_roll",data=gp))))
+                    self.assertIn(b'Win',response.data)
