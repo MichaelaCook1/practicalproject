@@ -12,5 +12,4 @@ class Testd12(TestBase):
     def test_d12(self):
         response = self.client.get('/d12')
         d12=response.data.decode('utf-8').isnumeric() and int(response.data.decode('utf-8'))>=1 and int(response.data.decode('utf-8'))<=12
-        self.assertTrue(d12)
-~                                                          
+        self.assertTrue(d12)                                 

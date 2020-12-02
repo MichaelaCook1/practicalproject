@@ -8,8 +8,14 @@ class TestBase(TestCase):
     def create_app(self):
         return app
 
+
 class TestValue(TestBase):
-    def test_value(self)
-    d20 = request.data.decode('utf-8')
-    d12 = request.data.decode('utf-8')
-    value =
+    def test_value(self):
+        with patch('requests.get') as g:
+            g.return_value.text = "7"
+            response = self.client.post(url_for('value'))
+            self.assertIn(b'14',response.data)
+    
+
+
+

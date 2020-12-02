@@ -7,6 +7,7 @@ from app import app
 
 class TestBase(TestCase):
     def create_app(self):
+        app.config['DEBUG']=True
         return app
 
 class TestIndex(TestBase):

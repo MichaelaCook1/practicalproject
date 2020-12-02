@@ -15,8 +15,9 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS']= False
 #defining database
 class attempts(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    value = db.Column(db.Integer)
-    result = db.Column(db.Boolean)
+    d20 = db.Column(db.Integer)
+    d12 = db.Column(db.Integer)
+    result = db.Column(db.String(6))
 
 @app.route('/',methods=['GET'])
 def index():
