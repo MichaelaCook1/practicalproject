@@ -17,10 +17,8 @@ class TestIndex(TestBase):
 class TestResponse(TestBase):
     def test_roll(self):
         with patch("requests.get") as g:
-            g.return_value = "15"
-            with patch("requests.get") as p:
-                p.return_value = "4"
-                with patch ("requests.post") as gp:
-                    gp.return_value.text = "Win"
-                    response = ((self.client.get(url_for("index_roll",data=gp))))
-                    self.assertIn(b'Win',response.data)
+            g.return_value = "7"
+            with patch ("requests.post") as p:
+                p.return_value.text = "Win"
+                response = self.client.get(url_for("index_roll"))
+                self.assertIn(b'Win',response.data)

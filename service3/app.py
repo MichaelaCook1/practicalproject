@@ -6,8 +6,9 @@ app = Flask(__name__)
 
 @app.route('/d12', methods=['GET'])
 def d12():
-    d12 = int(random.randint(1, 12))
-    return response(d12, mimetype="text/plain")
+    d12 = str(random.randint(1, 12))
+    return Response(d12, mimetype="text/plain")
 
 if __name__ =="__main__":
     app.run(debug=True, host='0.0.0.0', port=5002)
+

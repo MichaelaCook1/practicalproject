@@ -4,4 +4,4 @@ RUN apt install python-pip -y
 COPY . .
 RUN pip3 install -r requirements.txt
 EXPOSE 5002
-ENTRYPOINT ["python3", "app.py"]
+ENTRYPOINT ["gunicorn", "app.py"]

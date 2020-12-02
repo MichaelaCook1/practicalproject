@@ -10,7 +10,7 @@ class TestBase(TestCase):
 
 class Testd12(TestBase):
     def test_d12(self):
-        for i in range (1,12):
-            response = self.client.get(url_for('/d12'))
-            self.assertIs(type(response.data.decode('utf-8')),int )
+        response = self.client.get('/d12')
+        d12=response.data.decode('utf-8').isnumeric() and int(response.data.decode('utf-8'))>=1 and int(response.data.decode('utf-8'))<=12
+        self.assertTrue(d12)
 ~                                                          

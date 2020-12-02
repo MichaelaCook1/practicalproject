@@ -18,7 +18,7 @@ class attempts(db.Model):
     value = db.Column(db.Integer)
     result = db.Column(db.Boolean)
 
-@app.route('/')
+@app.route('/',methods=['GET'])
 def index():
     return render_template('index.html')
 
@@ -33,8 +33,8 @@ def index_roll():
     #total
     value = requests.post("http://service4:5003/value",data=value.text)
     resultcheck = requests.post("http://service4:5003/resultcheck", data=result.text)    
-    if resultcheck == 'True':
-        result = True
+    if resultcheck == 'Win':
+        result = 'Win'
         attempt = attempts(
                 value=value.text,
                 result=result
