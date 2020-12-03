@@ -15,11 +15,10 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS']= False
 #defining database
 class attempts(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    d20 = db.Column(db.Integer)
-    d12 = db.Column(db.Integer)
-    result = db.Column(db.String(6))
+    value = db.Column(db.Integer)
+    result = db.Column(db.Boolean)
 
-@app.route('/',methods=['GET'])
+@app.route('/')
 def index():
     return render_template('index.html')
 
@@ -32,10 +31,10 @@ def index_roll():
     #gets D12 result
     d12 = requests.get("http://service3:5002/d12")
     #total
-    value = requests.post("http://service4:5003/value",data=value.text)
-    resultcheck = requests.post("http://service4:5003/resultcheck", data=result.text)    
-    if resultcheck == 'Win':
-        result = 'Win'
+    value = requests.get("http://service4:5003/value")
+    resultcheck = requests.post("http://service4:5003/resultcheck")    
+    if resultcheck == 'True':
+        result = True
         attempt = attempts(
                 value=value.text,
                 result=result
@@ -43,7 +42,7 @@ def index_roll():
         db.session.add(attempt)
         db.session.commit()
 
-    return render_template('index.html', d20=d20.text, d12=d12.text, value=value.text, result=result.text)
+    return render_template('index.html')
 
 if __name__=="__main__":
     app.run(debug=True,host='0.0.0.0')
