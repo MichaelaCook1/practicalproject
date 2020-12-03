@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from flask import Flask, render_template,request,url_for,redirect
+from flask import Flask, render_template,request,url_for,redirect,Response
 import requests
 from flask_sqlalchemy import SQLAlchemy
 from os import getenv
@@ -16,7 +16,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS']= False
 class attempts(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     value = db.Column(db.Integer)
-    result = db.Column(db.Boolean)
+    result = db.Column(db.String(7))
 
 @app.route('/')
 def index():
@@ -31,17 +31,15 @@ def index_roll():
     #gets D12 result
     d12 = requests.get("http://service3:5002/d12")
     #total
-    value = requests.get("http://service4:5003/value")
-    resultcheck = requests.post("http://service4:5003/resultcheck")    
-    if resultcheck == 'True':
-        result = True
-        attempt = attempts(
-                value=value.text,
-                result=result
-        )
-        db.session.add(attempt)
-        db.session.commit()
-
+    value = int(d20.text)+ int(d12.text)
+    result = requests.post("http://service4:5003/result", data=str(value))    
+    attempt = attempts(
+            value=value,
+            result=result.text
+            )
+    db.session.add(attempt)
+    db.session.commit()
+    
     return render_template('index.html')
 
 if __name__=="__main__":

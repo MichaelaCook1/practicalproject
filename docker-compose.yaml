@@ -1,52 +1,46 @@
 version: '3.7'
 services:
   service1:
-    image: michaela6543/practicalproject_service1
+    image: michaelacook1/serv1i:latest
     build: ./service1
     ports:
-    - 5000:5000
+    - target: 5000
+      published: 5000
     environment:
-      DATABASE_URI: $DATABASE_URI
-      SECRET_KEY: $SECRET_KEY
+      DATABASE_URI: mysql+pymysql://root:root@35.242.154.137/attempts  
     depends_on: 
-    - service2
-    - service3
-    - service4
-    - mysql
-    deploy:
-      replicas: 3
+    - db
   service2:
-    image: michaela6543/practicalproject_service2
+    image: michaelacook1/serv2i:latest
     build: ./service2
     ports:
-    - 5001:5001
-    deploy:
-      replicas: 3
+    - target: 5001
+      published: 5001
   service3:
-    image: michaela6543/practicalproject_service3
+    image: michaelacook1/serv3i:latest
     build: ./service3
     ports:
-    - 5002:5002
-    deploy:
-      replicas: 3
+    - target: 5002
+      published: 5002
   service4:
-    image: michaela6543/practicalproject_service4
+    image: michaelacook1/serv4i:latest
     build: ./service4
     ports:
-    - 5003:5003
-    deploy:
-      replicas: 3
-  mysql:
-    image: michaela6543/practicalproject_mysql
+    - target: 5003
+      published: 5003
+  db:
+    image: michaelacook1/db:latest
     build: ./db
     ports:
-    - 3306:3306
+    - target: 3306
+      published: 3306
     environment: 
-      MYSQL_ROOT_PASSWORD: ${DB_PASS}
-      MYSQL_DATABASE: "attempts_db"
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: attempts_db
     volumes:
     - type: volume
-      source: attempts
+      source: mysql
       target: /var/lib/mysql
+
 volumes:
-  attempts: 
+  mysql:  

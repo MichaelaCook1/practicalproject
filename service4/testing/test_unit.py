@@ -9,13 +9,10 @@ class TestBase(TestCase):
         return app
 
 
-class TestValue(TestBase):
+class Testvalue(TestBase):
     def test_value(self):
-        with patch('requests.get') as g:
-            g.return_value.text = "7"
-            response = self.client.post(url_for('value'))
-            self.assertIn(b'14',response.data)
-    
-
+        response = self.client.get('/value')
+        value=response.data.decode('utf-8').isnumeric() and int(response.data.decode('utf-8'))>=2 and int(response.data.decode('utf-8'))<=32
+        self.assertFalse(value)
 
 
