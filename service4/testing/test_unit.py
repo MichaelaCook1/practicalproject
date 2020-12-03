@@ -16,3 +16,16 @@ class Testvalue(TestBase):
         self.assertFalse(value)
 
 
+class Testresult(TestBase):
+    def test_resultlose(self):
+        with patch("requests.get") as g:
+            g.return_value = "8"
+            with patch ("requests.post") as p:
+                p.return_value.text = "Lose"
+    
+    def test_resultwin(self):
+        with patch("requests.get") as g:
+            g.return_value = "7"
+            with patch ("requests.post") as p:
+                p.return_value.text = "Win"
+            

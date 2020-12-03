@@ -7,7 +7,7 @@ services:
     - target: 5000
       published: 5000
     environment:
-      DATABASE_URI: mysql+pymysql://root:root@35.242.154.137/attempts  
+      DATABASE_URI: mysql+pymysql://root:root@34.89.21.101/attempts  
     depends_on: 
     - db
   service2:
