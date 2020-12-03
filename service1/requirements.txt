@@ -8,3 +8,6 @@ flask-testing
 requests
 Werkzeug==0.16.1
 gunicorn
+requests
+flask-response
+flask-requests

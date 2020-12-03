@@ -36,5 +36,5 @@ class TestResponse(TestBase):
             g.return_value = "7"
             with patch ("requests.post") as p:
                 p.return_value.text = "Win"
-                response = self.client.get(url_for("index_roll"))
+                response = self.client.get(url_for("index"))
                 self.assertIn(b'Win',response.data)
