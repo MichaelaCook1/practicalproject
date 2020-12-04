@@ -1,5 +1,5 @@
 [swarm-managers]
-34.105.156.150 
+swarm-master 
 
 [swarm-managers:vars]
 ansible_user=jenkins
@@ -7,8 +7,8 @@ ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 ansible_ssh_private_key_file=~/.ssh/ansible_id_rsa
 
 [swarm-workers]
-34.105.205.184 
-35.197.209.93 
+swarm-worker 
+swarm-worker2 
 
 [swarm-workers:vars]
 ansible_user=jenkins
