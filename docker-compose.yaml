@@ -7,40 +7,46 @@ services:
     - target: 5000
       published: 5000
     environment:
-      DATABASE_URI: mysql+pymysql://root:root@34.89.21.101/attempts  
+      DATABASE_URI: mysql+pymysql://root:root@35.242.154.137/attempts  
     depends_on: 
     - db
+    deploy:
+    replicas: 3
   service2:
     image: michaelacook1/serv2i:latest
     build: ./service2
     ports:
     - target: 5001
       published: 5001
+    deploy:
+    replicas: 3
   service3:
     image: michaelacook1/serv3i:latest
     build: ./service3
     ports:
     - target: 5002
       published: 5002
+    deploy:
+    replicas: 3
   service4:
     image: michaelacook1/serv4i:latest
     build: ./service4
     ports:
     - target: 5003
       published: 5003
+    deploy:
+    replicas: 3
   db:
     image: michaelacook1/db:latest
     build: ./db
     ports:
-    - target: 3306
-      published: 3306
+    - 3306:3306
     environment: 
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: attempts_db
+      MYSQL_ROOT_PASSWORD: $root
+      MYSQL_DATABASE: "attempts_db"
     volumes:
     - type: volume
-      source: mysql
+      source: attempts
       target: /var/lib/mysql
-
 volumes:
-  mysql:  
+  attempts:  
