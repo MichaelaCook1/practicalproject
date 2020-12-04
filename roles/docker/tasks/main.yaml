@@ -1,40 +1,61 @@
-- name: 'download and install docker using apt'
-  apt: name=aptitude state=latest update_cache=yes force_apt_get=yes
+- name: 'update apt and install packages'
+  apt:
+    pkg:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - gnupg-agent
+    - software-properties-common
+    
+    
+    state: latest
+    update_cache: true
 
-- name: Install required system packages
-  apt: name={{ item }} state=latest update_cache=yes
-  loop: [ 'apt-transport-https', 'ca-certificates', 'curl', 'gnupg2', 'software-properties-common', 'python3-pip', 'virtualenv', 'python3-setuptools']
-
-- name: Add Docker GPG apt Key
+- name: 'add GPG key'
   apt_key:
     url: https://download.docker.com/linux/ubuntu/gpg
     state: present
 
-- name: Add Docker Repository
+- name: "make a repository"
   apt_repository:
-    repo: deb https://download.docker.com/linux/ubuntu bionic stable
-    state: present
+    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
+          
 
-- name: Update apt and install docker-ce
-  apt: update_cache=yes name=docker-ce state=latest
+- name: 'install docker'
+  apt:
+    pkg:
+    - docker-ce
+    - docker-ce-cli
+    - containerd.io
+    state: latest
 
-- name: Install Docker Module for Python
+
+- name: "add user to the docker group"
+  user:
+        name: "jenkins"
+        group: docker
+        state: present
+
+
+- name: Install Python3
+  apt:
+    name: python3
+    state: latest
+    update_cache: true
+
+- name: Install Pip3
+  apt:
+    name: python3-pip
+    state: latest
+    update_cache: true
+
+- name: Install setuptools
+  pip:
+    name: setuptools
+    executable: pip3
+    state: latest
+
+- name: Install Docker SDK
   pip:
     name: docker
-
-- name: Pull default Docker image
-  docker_image:
-    name: ubuntu
-    source: pull
-
-- name: Check current docker-compose version.
-  command: docker-compose --version
-  register: docker_compose_current_version
-  changed_when: false
-  failed_when: false
-
-- name: Install Docker Compose (if configured).
-  get_url:
-    url: https://github.com/docker/compose/releases/download/1.26.0/docker-compose-Linux-x86_64
-    dest: /usr/local/bin/docker-compose
-    mode: 0755
+    executable: pip3
