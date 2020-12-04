@@ -1,7 +1,7 @@
+
 - name: "Init a new swarm with default parameters"
-  docker_swarm:
-    state: present
-- name: "Get Swarm info"
+  shell: docker swarm init
+- name: "Get swarn info"
   docker_swarm_info:
   register: swarm_info
 - debug:
