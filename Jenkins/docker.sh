@@ -1,3 +1,4 @@
 #!/bin/bash
-sudo docker-compose build
-sudo docker-compose push
+cd practicalproject
+docker-compose build
+docker-compose push
