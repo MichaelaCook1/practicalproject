@@ -1,4 +1,4 @@
-- name: Init a new swarm with default parameters
+- name: "Init a new swarm with default parameters"
   docker_swarm:
     state: present
 - name: "Get Swarm info"
