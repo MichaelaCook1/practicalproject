@@ -8,7 +8,7 @@ pipeline{
 			}
 			stage('Ansible') {
 			    steps{
-				ansiblePlaybook credentialsId:'private-key', installation:'ansible', inventory:'inventory', playbook:'playbook.yaml', disableHostKeyChecking: true
+					sh "bash Jenkins/ansible.sh"
 				}
 			}
 			stage('Testing'){
