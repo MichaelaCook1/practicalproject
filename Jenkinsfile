@@ -3,7 +3,7 @@ pipeline{
 		stages{
 			stage('Install Requirements'){
 				steps{
-					sh "bash Jenkins/install-requirements.sh"
+					sh "bash Jenkins/requirements.sh"
 				}
 			}
 			stage('Testing'){
