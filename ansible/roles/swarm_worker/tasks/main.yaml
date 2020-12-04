@@ -1,0 +1,7 @@
+- name: Add nodes
+  docker_swarm:
+    listen_addrs:
+    state: join
+    remote_addrs: [ "{{ hostvars['man1']['ansible_default_ipv4']['address'] }}:2377" ]
+    advertise_addr: "{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
+    join_token: "{{ hostvars['token']['value'] }}"

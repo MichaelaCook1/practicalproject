@@ -6,6 +6,11 @@ pipeline{
 					sh "bash Jenkins/requirements.sh"
 				}
 			}
+			stage('Ansible') {
+			    steps{
+				sh "bash Jenkins/ansible.sh"
+				}
+			}
 			stage('Testing'){
 				steps{
 					sh "bash Jenkins/testing.sh"
