@@ -1,4 +1,4 @@
-- name: 'update apt and install packages'
+- name: 'updates and installations'
   apt:
     pkg:
     - apt-transport-https
@@ -11,17 +11,17 @@
     state: latest
     update_cache: true
 
-- name: 'add GPG key'
+- name: 'adding GPG key'
   apt_key:
     url: https://download.docker.com/linux/ubuntu/gpg
     state: present
 
-- name: "make a repository"
+- name: "making a repository"
   apt_repository:
     repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
           
 
-- name: 'install docker'
+- name: 'installing docker'
   apt:
     pkg:
     - docker-ce
@@ -30,7 +30,7 @@
     state: latest
 
 
-- name: "add user to the docker group"
+- name: "adding user to the docker group"
   user:
         name: "jenkins"
         group: docker

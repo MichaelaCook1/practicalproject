@@ -4,15 +4,15 @@
     dest: /home/practicalproject
     update: yes
 
-- name: "make the swarm"
+- name: "Makinge the swarm"
   docker_swarm:
     state: present
-- name: "Get swarm info"
+- name: "Getting swarm info"
   docker_swarm_info:
   register: swarm_info
 
         
-- name: "Get a join token"
+- name: "Getting a join token"
   add_host:
     name: "token"
     value: "{{ swarm_info['swarm_facts']['JoinTokens']['Worker'] }}"

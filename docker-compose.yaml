@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   service1:
-    image: michaelacook1/serv1i:latest
+    image: michaelacook1/service1:latest
     build: ./service1
     ports:
     - target: 5000
@@ -13,7 +13,7 @@ services:
     deploy:
      replicas: 3
   service2:
-    image: michaelacook1/serv2i:latest
+    image: michaelacook1/service2:latest
     build: ./service2
     ports:
     - target: 5001
@@ -21,7 +21,7 @@ services:
     deploy:
      replicas: 3
   service3:
-    image: michaelacook1/serv3i:latest
+    image: michaelacook1/service3:latest
     build: ./service3
     ports:
     - target: 5002
@@ -29,13 +29,20 @@ services:
     deploy:
      replicas: 3
   service4:
-    image: michaelacook1/serv4i:latest
+    image: michaelacook1/service4:latest
     build: ./service4
     ports:
     - target: 5003
       published: 5003
     deploy:
      replicas: 3
+  nginx-loader:
+    image: nginx:alpine
+    ports: 
+    - target: 80
+      published: 80
+     deploy:
+      replicas: 1
   db:
     image: michaelacook1/db:latest
     build: ./db
