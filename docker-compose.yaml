@@ -36,13 +36,6 @@ services:
       published: 5003
     deploy:
      replicas: 3
-  nginx-loader:
-    image: nginx:alpine
-    ports: 
-    - target: 80
-      published: 80
-     deploy:
-      replicas: 1
   db:
     image: michaelacook1/db:latest
     build: ./db
