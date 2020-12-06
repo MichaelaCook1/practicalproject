@@ -7,7 +7,7 @@ services:
     - target: 5000
       published: 5000
     environment:
-      DATABASE_URI: mysql+pymysql://root:root@35.242.154.137/attempts  
+            DATABASE_URI: mysql+pymysql://root:root@34.89.119.24/attempts:3306
     depends_on: 
     - db
     deploy:
@@ -42,8 +42,8 @@ services:
     ports:
     - 3306:3306
     environment: 
-      MYSQL_ROOT_PASSWORD: $root
-      MYSQL_DATABASE: "attempts_db"
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: attempts_db
     volumes:
     - type: volume
       source: attempts
