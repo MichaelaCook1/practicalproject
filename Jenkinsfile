@@ -22,10 +22,5 @@ pipeline{
 					sh "bash Jenkins/docker.sh"
 				}
 			}
-			stage('Deploy Stack'){
-				steps{
-					sh "bash Jenkins/stack.sh"
-				}
-			}
 		}    
 }

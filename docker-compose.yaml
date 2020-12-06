@@ -11,6 +11,7 @@ services:
     depends_on: 
     - db
     deploy:
+      replicas: 3
   service2:
     image: michaelacook1/service2:latest
     build: ./service2
@@ -18,6 +19,7 @@ services:
     - target: 5001
       published: 5001
     deploy:
+      replicas: 3
   service3:
     image: michaelacook1/service3:latest
     build: ./service3
@@ -25,6 +27,7 @@ services:
     - target: 5002
       published: 5002
     deploy:
+      replicas: 3
   service4:
     image: michaelacook1/service4:latest
     build: ./service4
@@ -32,6 +35,7 @@ services:
     - target: 5003
       published: 5003
     deploy:
+      replicas: 3
   db:
     image: michaelacook1/db:latest
     build: ./db
