@@ -4,7 +4,7 @@
     dest: /home/practicalproject
     update: yes
 
-- name: "Makinge the swarm"
+- name: "Making the swarm"
   docker_swarm:
     state: present
 - name: "Getting swarm info"
