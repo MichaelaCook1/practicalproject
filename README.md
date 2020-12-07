@@ -5,18 +5,18 @@
 #GitHub Project Board: https://github.com/users/MichaelaCook1/projects/3
 
 ## Contents
-*[Brief & Requirements](#brief)
-*[My Pitch](#my-pitch)
-*[Service Architecture](#service-architecture)
-*[ERD](#erd)
-*[MOSCOW Model](#moscow-model)
-*[CI Pipeline](#ci-pipeline)
-*[VCS and Project Tracking](#vcs-and-project-tracking)
-*[Deployment](#deployment)
-*[Risk Assessments](#risk-assessments)
-*[Testing Analysis](#testing-analysis)
-*[Application Front-End Imagery](#application-front-end-imagery)
-*[Further Developments](#further-developments)
+* [Brief & Requirements](#brief)
+* [My Pitch](#my-pitch)
+* [Service Architecture](#service-architecture)
+* [ERD](#erd)
+* [MOSCOW Model](#moscow-model)
+* [CI Pipeline](#ci-pipeline)
+* [VCS and Project Tracking](#vcs-and-project-tracking)
+* [Deployment](#deployment)
+* [Risk Assessment](#risk-assessment)
+* [Testing Analysis](#testing-analysis)
+* [Application Front-End Imagery](#application-front-end-imagery)
+* [Further Developments](#further-developments)
 
 ## Brief
 You are required to create a service-orientated architecture for your application, this application must be composed of at least 4 services that work together.
@@ -81,12 +81,12 @@ Below is the entity relationship diagram (ERD) detailing the structure of the da
 
 ## MOSCOW Model
 
-*#M - A web application that utilises a service to display the front-end of the app, two random elements services that are combined within a fourth service, clear documentation, project board, build through jenkins, artifact repository through docker, using ansible to initiate a docker swarm, deployment using a docker stack, and reverse proxy using NGINX
-*#O - 
-*#S - Detailed unit testing of services, replicas and multiple workers for seamless updates
-*#C - coverage of unit testing preserved in a html report
-*#O - 
-*#W - Persistence of data from a database ( this was attempted but was unsuccessful)
+* # M - A web application that utilises a service to display the front-end of the app, two random elements services that are combined within a fourth service, clear documentation, project board, build through jenkins, artifact repository through docker, using ansible to initiate a docker swarm, deployment using a docker stack, and reverse proxy using NGINX
+* # O - 
+* # S - Detailed unit testing of services, replicas and multiple workers for seamless updates
+* # C - coverage of unit testing preserved in a html report
+* # O - 
+* # W - Persistence of data from a database ( this was attempted but was unsuccessful)
 
 ## CI Pipeline
 Below is a diagram detailing the continuous integration pipeling.
@@ -131,7 +131,7 @@ After testing this service a testing coverage of 83% was achieved, this is a mor
 
 ![Service4Test][Service4Test]
 
-#Testing Analysis
+## Testing Analysis
 Initially when running the Jenkins Pipeline it was run without ansible or docker stack to test the success of the build process, after troubleshooting errors with the database portion of the build a successful result was shown as below:
 
 ![JenkinsnoAnsible][JenkinsnoAnsible]
@@ -146,35 +146,35 @@ Despite apparently running successfully, a connection refused error occurred whe
 
 To fix this error the service was removed once again and the port for the database image was changed to 3307 to stop any further conflicts.
 
-##Application Front-End Imagery
+## Application Front-End Imagery
 See below front end image detailing dice rolls, value and result of roll
 
 ![index][index]
 
-##Further Developments
+## Further Developments
 Given more time I would have investigated the database functionality such that it would persist data throughout the application. I also would have liked the opportunity to add more complexity to the services, and to add a quantumrandom plugin to the services so that the dice roll would be truly random as opposed to psuedo-randomness. 
 
-##Author
+## Author
 Michaela Cook
 
-[Service1]: https://imgur.com/a/Ej9PadZ
-[Service2]: https://imgur.com/a/tsiu7Lb
-[Service3]: https://imgur.com/a/NXCkl22
-[Service4]: https://imgur.com/a/UgZbvKV
-[InitialArch]: https://imgur.com/a/of34viU
-[FinalArch]: https://imgur.com/a/CkIXPqE
-[ERD]: https://imgur.com/a/qM8YEOX
-[CI]: https://imgur.com/a/x7rZrgH
-[InitialRisk]: https://imgur.com/a/qPYFNMq
-[UpdatedRisk]: https://imgur.com/a/bLcTMKj
+[Service1]: https://i.imgur.com/NfE9LJy.png
+[Service2]: https://i.imgur.com/YcdcRQo.png
+[Service3]: https://i.imgur.com/3N8U0Sb.png
+[Service4]: https://i.imgur.com/uBgm8QS.png
+[InitialArc]: https://i.imgur.com/Vhu3kbi.png
+[FinalArc]: https://i.imgur.com/xc32TH5.png
+[ERD]: https://i.imgur.com/7Np2AUl.png
+[CI]: https://i.imgur.com/y51BRBl.png
+[InitialRisk]: https://i.imgur.com/3yNp0rj.png
+[UpdatedRisk]: https://i.imgur.com/tYkhkcA.png
 [Service1Test]: https://imgur.com/a/ed1Ziwe
 [Service2Test]: https://imgur.com/a/ctJQTvJ
 [Service3Test]: https://imgur.com/a/mWWxwRf
 [Service4Test]: https://imgur.com/a/nyRJIC6
-[JenkinsnoAnsible]: https://imgur.com/a/F9NOWbo
-[JenkinsSuccess]: https://imgur.com/a/VSnixEU
-[sqlerror]: https://imgur.com/a/ybzVoR6
-[index]: https://imgur.com/a/8vu2ajX
+[JenkinsnoAnsible]: https://i.imgur.com/x4z9bRo.png
+[JenkinsSuccess]: https://i.imgur.com/VUEMgCo.png
+[sqlerror]: https://i.imgur.com/u03i9FG.png
+[index]: https://i.imgur.com/5XCen9J.png
 
 
 
