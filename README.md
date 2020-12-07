@@ -5,18 +5,18 @@
 #GitHub Project Board: https://github.com/users/MichaelaCook1/projects/3
 
 ## Contents
-*Brief & Requirements
-*My Pitch
-*Service Architecture
-*ERD
-*MOSCOW Model
-*CI Pipeline
-*VCS and Project Tracking
-*Deployment
-*Risk Assessments
-*Testing Analysis
-*Application Front-End Imagery
-*Further Developments
+*[Brief & Requirements](#brief)
+*[My Pitch](#my-pitch)
+*[Service Architecture](#service-architecture)
+*[ERD](#erd)
+*[MOSCOW Model](#moscow-model)
+*[CI Pipeline](#ci-pipeline)
+*[VCS and Project Tracking](#vcs-and-project-tracking)
+*[Deployment](#deployment)
+*[Risk Assessments](#risk-assessments)
+*[Testing Analysis](#testing-analysis)
+*[Application Front-End Imagery](#application-front-end-imagery)
+*[Further Developments](#further-developments)
 
 ## Brief
 You are required to create a service-orientated architecture for your application, this application must be composed of at least 4 services that work together.
@@ -81,12 +81,12 @@ Below is the entity relationship diagram (ERD) detailing the structure of the da
 
 ## MOSCOW Model
 
-#M - A web application that utilises a service to display the front-end of the app, two random elements services that are combined within a fourth service, clear documentation, project board, build through jenkins, artifact repository through docker, using ansible to initiate a docker swarm, deployment using a docker stack, and reverse proxy using NGINX
-#O - 
-#S - Detailed unit testing of services, replicas and multiple workers for seamless updates
-#C - coverage of unit testing preserved in a html report
-#O - 
-#W - Persistence of data from a database ( this was attempted but was unsuccessful)
+*#M - A web application that utilises a service to display the front-end of the app, two random elements services that are combined within a fourth service, clear documentation, project board, build through jenkins, artifact repository through docker, using ansible to initiate a docker swarm, deployment using a docker stack, and reverse proxy using NGINX
+*#O - 
+*#S - Detailed unit testing of services, replicas and multiple workers for seamless updates
+*#C - coverage of unit testing preserved in a html report
+*#O - 
+*#W - Persistence of data from a database ( this was attempted but was unsuccessful)
 
 ## CI Pipeline
 Below is a diagram detailing the continuous integration pipeling.
