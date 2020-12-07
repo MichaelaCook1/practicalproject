@@ -167,10 +167,10 @@ Michaela Cook
 [CI]: https://i.imgur.com/y51BRBl.png
 [InitialRisk]: https://i.imgur.com/3yNp0rj.png
 [UpdatedRisk]: https://i.imgur.com/tYkhkcA.png
-[Service1Test]: https://imgur.com/a/ed1Ziwe
-[Service2Test]: https://imgur.com/a/ctJQTvJ
-[Service3Test]: https://imgur.com/a/mWWxwRf
-[Service4Test]: https://imgur.com/a/nyRJIC6
+[Service1Test]: https://i.imgur.com/klh2QFJ.png
+[Service2Test]: https://i.imgur.com/J0RmSRc.png
+[Service3Test]: https://i.imgur.com/5kGakk2.png
+[Service4Test]: https://i.imgur.com/Jlkw07F.png
 [JenkinsnoAnsible]: https://i.imgur.com/x4z9bRo.png
 [JenkinsSuccess]: https://i.imgur.com/VUEMgCo.png
 [sqlerror]: https://i.imgur.com/u03i9FG.png
