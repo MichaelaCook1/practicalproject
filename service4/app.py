@@ -8,9 +8,9 @@ app = Flask(__name__)
 def result():
     value =int(request.data.decode('utf-8'))
     if (value % 2)==0:
-        result = 'Win'
+        result = 'Lose'
     else:
-        result = "Lose"
+        result = "Win"
     return Response(result, mimetype="text/plain")
 
 if __name__ =="__main__":
