@@ -9,7 +9,7 @@ services:
       protocol: tcp
     environment:
               DATABASE_URI: mysql+pymysql://root:root@34.89.119.24/attempts:3306
-    depends on:
+    depends_on:
               -db
     deploy:
       replicas: 3
