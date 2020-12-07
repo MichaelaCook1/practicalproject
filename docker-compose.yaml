@@ -10,7 +10,7 @@ services:
     environment:
               DATABASE_URI: mysql+pymysql://root:root@34.89.119.24/attempts:3306
     depends_on:
-    -db
+    - db
     deploy:
       replicas: 3
   service2:
