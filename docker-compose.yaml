@@ -37,7 +37,7 @@ services:
       protocol: tcp
     deploy:
       replicas: 3
-   db:
+  db:
     image: michaelacook1/db:latest
     build: ./db
     ports:
